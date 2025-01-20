@@ -7,8 +7,26 @@ import {
   AutoIncrement,
   AllowNull,
   HasMany,
+  ForeignKey,
+  BelongsTo,
 } from "sequelize-typescript";
-import { Task } from "./task.js";
+
+@Table
+export class Task extends Model {
+  @PrimaryKey
+  @Column(DataType.INTEGER)
+  id!: number;
+
+  @Column(DataType.STRING)
+  name!: string;
+
+  @ForeignKey(() => User)
+  @Column(DataType.INTEGER)
+  created_by!: number;
+
+  @BelongsTo(() => User)
+  user!: User;
+}
 
 @Table
 export class User extends Model {
