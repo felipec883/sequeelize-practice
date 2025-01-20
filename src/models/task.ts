@@ -26,5 +26,5 @@ export class Task extends Model {
   created_by!: number;
 
   @BelongsTo(() => User)
-  user!: User;
+  user!: User | null;
 }

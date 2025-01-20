@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import { DATABASE, DB_PASSWORD, DB_PORT } from "./constants.js";
-import { Task, User } from "../models/user.js";
-
+import { Task } from "../models/task.js";
+import { User } from "../models/user.js";
 export const sequelize = new Sequelize({
   dialect: "postgres",
   database: DATABASE,
@@ -9,7 +9,7 @@ export const sequelize = new Sequelize({
   password: DB_PASSWORD,
   port: +DB_PORT,
   logging: (...msg: any) => console.log(msg),
-  models: [User, Task],
+  models: [Task, User],
 });
 
 sequelize.sync();

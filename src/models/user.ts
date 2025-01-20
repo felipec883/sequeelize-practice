@@ -10,30 +10,14 @@ import {
   ForeignKey,
   BelongsTo,
 } from "sequelize-typescript";
-
-@Table
-export class Task extends Model {
-  @PrimaryKey
-  @Column(DataType.INTEGER)
-  id!: number;
-
-  @Column(DataType.STRING)
-  name!: string;
-
-  @ForeignKey(() => User)
-  @Column(DataType.INTEGER)
-  created_by!: number;
-
-  @BelongsTo(() => User)
-  user!: User;
-}
+import { Task } from "./task.js";
 
 @Table
 export class User extends Model {
   @PrimaryKey
   @AutoIncrement
   @AllowNull(false)
-  @Column(DataType.NUMBER)
+  @Column
   id!: number;
 
   @Column(DataType.STRING)
@@ -46,5 +30,5 @@ export class User extends Model {
   role!: string;
 
   @HasMany(() => Task)
-  tasks!: Task[];
+  tasks!: ReturnType<() => Task[]>;
 }
