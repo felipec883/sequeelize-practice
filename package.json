@@ -6,7 +6,12 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch ./dist/app.js"
+    "dev": "node --watch ./dist/app.js",
+    "migrate": "sequelize-cli db:migrate",
+    "migrate:undo": "sequelize-cli db:migrate:undo",
+    "migrate:seed": "sequelize-cli db:seed:all",
+    "migrate:seed:undo": "sequelize-cli db:seed:undo:all",
+    "migration:generate": "sequelize-cli migration:generate"
   },
   "author": "",
   "license": "ISC",

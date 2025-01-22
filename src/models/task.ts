@@ -12,7 +12,7 @@ import {
 import { User } from "./user.js";
 import { Col } from "sequelize/lib/utils";
 
-@Table
+@Table({ tableName: "task", freezeTableName: true })
 export class Task extends Model {
   @PrimaryKey
   @Column(DataType.INTEGER)

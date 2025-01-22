@@ -10,6 +10,9 @@ export const sequelize = new Sequelize({
   port: +DB_PORT,
   logging: (...msg: any) => console.log(msg),
   models: [Task, User],
+  define: {
+    freezeTableName: true,
+  },
 });
 
-sequelize.sync();
+// sequelize.sync();

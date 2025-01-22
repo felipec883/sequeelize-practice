@@ -12,7 +12,7 @@ import {
 } from "sequelize-typescript";
 import { Task } from "./task.js";
 
-@Table
+@Table({ tableName: "user" })
 export class User extends Model {
   @PrimaryKey
   @AutoIncrement
